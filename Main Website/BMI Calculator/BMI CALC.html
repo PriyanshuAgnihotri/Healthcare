@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    *{margin: 0; padding: 0; }
+
+.container{
+     display: grid;
+     justify-content: center;
+     align-content: center;
+     min-height: 100vh;
+     grid-template-columns: 30vw;
+     grid-template-rows: repeat(3,10vh) 5vh repeat(2,10vh);
+     grid-gap: 10px;
+
+}
+body{
+    background:linear-gradient(20deg,#fec5bb,#d8e2dc,#ffd7ba);
+   background-repeat: no-repeat;
+   background-position: left;
+   background-size: 99%;
+   backface-visibility: 100%;
+  background-position: fixed;
+  border-width: 5px;
+
+}
+
+
+h1{
+    text-align: center;
+    padding-top: 0px;
+    font-size: xx-large;
+}
+
+
+
+
+
+.submit-btn{
+    background-color: #000000;
+}
+.bmi-value{
+    background-color:#f4acb7;
+    display: grid;
+    grid-template-rows: 70% 70%;
+
+
+}
+.status{
+    background-color: #bdb2ff;
+    display: grid;
+    grid-template-rows: 70% 70%;
+
+
+}
+.container > div{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    border-radius: 10px;
+}
+button,input{
+    min-width: 100%;
+    min-height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.5vw;
+    border-radius: 8px;
+}
+input{
+    background:aqua;
+    text-indent: 0.5em;
+    max :width 100% ;
+    color: black;
+    outline: none;
+
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+button{
+    background:#eae4e9;
+    cursor: pointer;
+
+}
+button:hover{
+    background: #c70039;
+    color: white;
+}
+
+</style>
+</head>
+
+    <title>BMI Calculate</title>
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="source">
+       <center> <video src="Education 📖 (2).mp4" autoplay playsline controls  width="90%" height="100%"></video></center>
+    </div>
+    <div class="container">
+       <b> <h1>Body Mass Index Calculator</h1></b>
+      <br>
+      <br>
+        <label>
+            <input id="h-input" type="number" placeholder="Enter Your Height in Centimeters: ">
+        </label>
+        <label>
+         <input id="w-input" type="number" placeholder="Enter Your Weight in Kilograms: ">
+        </label>
+        <button type="submit" onclick="Calculate()" >Calculate BMI</button>
+
+        <div class="bmi-value">
+            <h4>BMI Value: </h4>
+            <div id="bmi-output"></div>
+        </div>
+        <div class="status">
+            <h4>Status: </h4>
+            <div id="bmi-status"></div>
+
+
+            <script>
+
+                function Calculate(){
+    var height = document.getElementById("h-input").value;
+    var weight = document.getElementById("w-input").value;
+
+    var result = parseFloat(weight) /(parseFloat(height)/100)**2;
+
+
+    if(!isNaN(result)){
+        document.getElementById("bmi-output").innerHTML = result;
+        if(result < 18.5){
+            document.getElementById("bmi-status").innerHTML = "Underweight";
+
+        }
+        else if(result < 25){
+            document.getElementById("bmi-status").innerHTML = "Normal Weight";
+        }
+        else if(result < 30){
+            document.getElementById("bmi-status").innerHTML = "Overweight";
+        }
+        else{
+            document.getElementById("bmi-status").innerHTML = "Obesity";
+        }
+    }
+
+}
+            </script>
+        </div>
+    </div>
+
+</body>
+</html>
